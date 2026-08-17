@@ -16,4 +16,6 @@ def crear_tarea_equipo(correo_usuario: str, titulo_tarea: str, hora_evento: str)
 if __name__ == "__main__":
     puerto = int(os.environ.get("PORT", 8000))
     print(f"Iniciando servidor MCP en el puerto {puerto}...")
-    mcp.run(transport="sse", host="0.0.0.0", port=puerto)
+    
+    # Modo HTTP unificado (admite GET y POST en el mismo endpoint)
+    mcp.run(transport="http", host="0.0.0.0", port=puerto)
